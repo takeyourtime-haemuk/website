@@ -6,19 +6,23 @@ let cart = {
 const products = {
   'octopus-ragu': {
     name: 'Octopus Ragu Recipe',
-    price: 45000,
+    price: 59000,
     ingredients: [
       {
-        name: '통영산 돌문어 3kg 1마리',
-        price: 35000
+        name: '통영상 돌문어 (1kg)',
+        price: 31180
       },
       {
-        name: 'Hunts 토마토 페이스트 300g X 2개',
-        price: 6000
+        name: 'Hunts 토마토 페이스트 (340g) × 2개',
+        price: 10160
       },
       {
-        name: 'Dececo 리가토니 면',
-        price: 4000
+        name: '샐러리 (1포기)',
+        price: 3980
+      },
+      {
+        name: '델파파 유기농 엑스트라 버진 올리브오일 (250ml)',
+        price: 13300
       }
     ]
   }
