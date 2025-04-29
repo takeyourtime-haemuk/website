@@ -6,7 +6,6 @@ let cart = {
 const products = {
   'octopus-ragu': {
     name: 'Octopus Ragu Recipe',
-    price: 58620,
     ingredients: [
       {
         name: '통영상 돌문어 (1kg)',
@@ -46,10 +45,10 @@ function addToCart(productId) {
   const product = products[productId];
   if (!product) return;
 
-  // Add recipe and ingredients to cart
-  cart.items = cart.items.concat([product, ...product.ingredients]);
+  // Add only ingredients to cart
+  cart.items = cart.items.concat(product.ingredients);
   
-  // Calculate total
+  // Calculate total from ingredients only
   cart.total = cart.items.reduce((sum, item) => sum + item.price, 0);
   
   // Update cart count

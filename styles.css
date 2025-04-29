@@ -127,6 +127,15 @@ h1 a:hover {
   border-bottom: none;
 }
 
+.ingredients-total {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
 /* Button styles */
 .btn {
   padding: 1rem 2rem;

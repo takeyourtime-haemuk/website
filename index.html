@@ -11,7 +11,7 @@
   <header>
     <div class="header-content">
       <h1>Haemuk</h1>
-      <div class="cart-icon" onclick="toggleCart()">
+      <div class="cart-icon" onclick="window.location.href='/cart.html'">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count">0</span>
       </div>
@@ -25,21 +25,21 @@
       </div>
       <div class="product-details">
         <h2 class="product-title">Octopus Ragu Recipe</h2>
-        <div class="product-price">₩59,000</div>
         <div class="product-description">
           <p>Experience the perfect fusion of Korean and Italian cuisine with our signature Octopus Ragu recipe. This unique dish combines tender Tongyeong octopus with a rich tomato sauce, enhanced by fresh celery and premium olive oil, all served over authentic Italian rigatoni pasta.</p>
         </div>
         <div class="ingredients-list">
-          <h3>Included Ingredients:</h3>
+          <h3>Required Ingredients:</h3>
           <ul>
             <li>통영상 돌문어 (1kg) - ₩31,180</li>
             <li>Hunts 토마토 페이스트 (340g) × 2개 - ₩10,160</li>
             <li>샐러리 (1포기) - ₩3,980</li>
             <li>델파파 유기농 엑스트라 버진 올리브오일 (250ml) - ₩13,300</li>
           </ul>
+          <div class="ingredients-total">Total Ingredients Cost: ₩58,620</div>
         </div>
         <button class="btn btn-primary" onclick="addToCart('octopus-ragu')">
-          Add to Cart
+          Add Ingredients to Cart
         </button>
       </div>
     </div>
