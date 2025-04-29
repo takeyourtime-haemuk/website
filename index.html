@@ -3,31 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Haemuk</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8fafc;
-      color: #333;
-      flex-direction: column;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-  </style>
+  <title>Haemuk - Octopus Ragu Recipe</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <h1>Haemuk</h1>
-  <p>Coming Soon 🍽️</p>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <h1>Haemuk</h1>
+        <div class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1625943553852-781c6dd46faa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Octopus Ragu">
+      </div>
+      <div class="product-details">
+        <h2 class="product-title">Octopus Ragu Recipe</h2>
+        <div class="product-price">₩45,000</div>
+        <div class="product-description">
+          <p>Experience the perfect fusion of Korean and Italian cuisine with our signature Octopus Ragu recipe. This unique dish combines tender Tongyeong octopus with a rich tomato sauce, served over authentic Italian rigatoni pasta.</p>
+        </div>
+        <div class="ingredients-list">
+          <h3>Included Ingredients:</h3>
+          <ul>
+            <li>통영산 돌문어 3kg 1마리 (₩35,000)</li>
+            <li>Hunts 토마토 페이스트 300g X 2개 (₩6,000)</li>
+            <li>Dececo 리가토니 면 (₩4,000)</li>
+          </ul>
+        </div>
+        <button class="btn btn-primary" onclick="addToCart('octopus-ragu')">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
