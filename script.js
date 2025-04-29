@@ -6,7 +6,7 @@ let cart = {
 const products = {
   'octopus-ragu': {
     name: 'Octopus Ragu Recipe',
-    price: 59000,
+    price: 58620,
     ingredients: [
       {
         name: '통영상 돌문어 (1kg)',
@@ -38,8 +38,12 @@ function addToCart(productId) {
   // Calculate total
   cart.total = cart.items.reduce((sum, item) => sum + item.price, 0);
   
-  // Update cart count
+  // Update cart count and content
   updateCartCount();
+  updateCartContent();
+  
+  // Show cart page
+  toggleCart(true);
 }
 
 function updateCartCount() {
@@ -47,4 +51,59 @@ function updateCartCount() {
   if (cartCount) {
     cartCount.textContent = cart.items.length;
   }
+}
+
+function updateCartContent() {
+  const cartContent = document.getElementById('cartContent');
+  if (!cartContent) return;
+
+  if (cart.items.length === 0) {
+    cartContent.innerHTML = `
+      <div class="empty-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Your cart is empty</p>
+      </div>
+    `;
+    return;
+  }
+
+  cartContent.innerHTML = `
+    <div class="cart-items">
+      ${cart.items.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">₩${item.price.toLocaleString()}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span>₩${cart.total.toLocaleString()}</span>
+      </div>
+      <button class="checkout-button" onclick="checkout()">
+        Proceed to Checkout
+      </button>
+    </div>
+  `;
+}
+
+function toggleCart(show = null) {
+  const cartPage = document.getElementById('cartPage');
+  if (!cartPage) return;
+
+  if (show === null) {
+    cartPage.classList.toggle('active');
+  } else {
+    cartPage.classList.toggle('active', show);
+  }
+
+  updateCartContent();
+}
+
+function checkout() {
+  // Implement checkout functionality here
+  alert('Checkout functionality will be implemented soon!');
 } 
