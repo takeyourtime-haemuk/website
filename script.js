@@ -28,6 +28,20 @@ const products = {
   }
 };
 
+// Save cart to localStorage
+function saveCart() {
+  localStorage.setItem('haemukCart', JSON.stringify(cart));
+}
+
+// Load cart from localStorage
+function loadCart() {
+  const savedCart = localStorage.getItem('haemukCart');
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+    updateCartCount();
+  }
+}
+
 function addToCart(productId) {
   const product = products[productId];
   if (!product) return;
@@ -38,12 +52,14 @@ function addToCart(productId) {
   // Calculate total
   cart.total = cart.items.reduce((sum, item) => sum + item.price, 0);
   
-  // Update cart count and content
+  // Update cart count
   updateCartCount();
-  updateCartContent();
   
-  // Show cart page
-  toggleCart(true);
+  // Save cart
+  saveCart();
+  
+  // Navigate to cart page
+  window.location.href = '/cart.html';
 }
 
 function updateCartCount() {
@@ -62,6 +78,7 @@ function updateCartContent() {
       <div class="empty-cart">
         <i class="fas fa-shopping-cart"></i>
         <p>Your cart is empty</p>
+        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
       </div>
     `;
     return;
@@ -90,20 +107,20 @@ function updateCartContent() {
   `;
 }
 
-function toggleCart(show = null) {
-  const cartPage = document.getElementById('cartPage');
-  if (!cartPage) return;
-
-  if (show === null) {
-    cartPage.classList.toggle('active');
-  } else {
-    cartPage.classList.toggle('active', show);
-  }
-
-  updateCartContent();
-}
-
 function checkout() {
   // Implement checkout functionality here
   alert('Checkout functionality will be implemented soon!');
-} 
+}
+
+// Initialize cart when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  loadCart();
+  
+  // Add click handler to cart icon
+  const cartIcon = document.querySelector('.cart-icon');
+  if (cartIcon) {
+    cartIcon.addEventListener('click', function() {
+      window.location.href = '/cart.html';
+    });
+  }
+}); 
