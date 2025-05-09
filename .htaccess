@@ -1,0 +1,19 @@
+# Serve .well-known files with correct MIME type
+<FilesMatch "apple-app-site-association|assetlinks\.json">
+    Header set Content-Type application/json
+</FilesMatch>
+
+# Ensure .well-known files are accessible
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^\.well-known/apple-app-site-association - [L]
+    RewriteRule ^\.well-known/assetlinks\.json - [L]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
