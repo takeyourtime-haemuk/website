@@ -240,7 +240,6 @@ footer {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .logo {
@@ -253,12 +252,12 @@ footer {
 .download-button {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .download-button:hover {
@@ -275,12 +274,13 @@ footer {
 .hero .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: 40px;
 }
 
 .hero-content {
-  flex: 1;
+  max-width: 600px;
 }
 
 .hero-content h2 {
@@ -309,15 +309,24 @@ footer {
 /* Download Button */
 .app-download {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
 
 .download-button {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .download-button:hover {
-  transform: translateY(-5px);
+  background-color: #ff5252;
 }
 
 .download-button img {
@@ -465,130 +474,115 @@ footer {
   }
 }
 
-/* Terms Content Styles */
-.terms-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.8;
-}
-
-.terms-content h4 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.terms-content h5 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 2rem 0 1rem;
-}
-
-.terms-content p {
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-.terms-content ol, 
-.terms-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.terms-content li {
-  margin-bottom: 0.5rem;
-}
-
-.terms-date {
-  margin-top: 2rem;
-  color: var(--dark-gray);
-  font-size: 0.9rem;
-}
-
-/* Refund Content Styles */
+/* Common styles for terms, privacy, and refund pages */
+.terms-content,
+.privacy-content,
 .refund-content {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 20px;
-  line-height: 1.8;
 }
 
+.terms-content h4,
+.privacy-content h4,
 .refund-content h4 {
-  font-size: 1.4rem;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
   text-align: center;
 }
 
+.terms-content h5,
+.privacy-content h5,
 .refund-content h5 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 25px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--light-gray);
 }
 
+.terms-content p,
+.privacy-content p,
 .refund-content p {
-  margin-bottom: 1rem;
-}
-
-.refund-content ul {
-  margin-bottom: 1.5rem;
-  padding-left: 2rem;
-}
-
-.refund-content li {
-  margin-bottom: 0.5rem;
-}
-
-.refund-date {
-  color: var(--dark-gray);
-  font-size: 0.9rem;
-  text-align: right;
-  margin-top: 2rem;
-}
-
-/* Privacy Content Styles */
-.privacy-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin-bottom: 15px;
   line-height: 1.8;
 }
 
-.privacy-content h4 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
+.terms-content ol,
+.terms-content ul,
+.privacy-content ul,
+.refund-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
 }
 
-.privacy-content h5 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+.terms-content li,
+.privacy-content li,
+.refund-content li {
+  margin-bottom: 10px;
+  line-height: 1.8;
 }
 
-.privacy-content p {
-  margin-bottom: 1rem;
-}
-
-.privacy-content ul {
-  margin-bottom: 1.5rem;
-  padding-left: 2rem;
-}
-
-.privacy-content li {
-  margin-bottom: 0.5rem;
-}
-
-.privacy-date {
+.terms-date,
+.privacy-date,
+.refund-date {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--light-gray);
   color: var(--dark-gray);
-  font-size: 0.9rem;
+  font-size: 14px;
   text-align: right;
-  margin-top: 2rem;
+}
+
+/* Remove any duplicate or inconsistent styles */
+.terms-content, .privacy-content, .refund-content {
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .terms-content,
+  .privacy-content,
+  .refund-content {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .terms-content h4,
+  .privacy-content h4,
+  .refund-content h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .terms-content h5,
+  .privacy-content h5,
+  .refund-content h5 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+  }
+}
+
+.store-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.store-button-content img {
+  height: 24px;
+  width: auto;
+  display: block;
+  margin-top: 1px;
+}
+
+.store-button-content span {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
 } 
