@@ -1,49 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Haemuk - Octopus Ragu Recipe</title>
+  <title>해먹 - 나만의 요리 도우미</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <h1>Haemuk</h1>
-      <div class="cart-icon" onclick="window.location.href='/cart.html'">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">0</span>
-      </div>
+  <header class="main-header">
+    <div class="header-container">
+      <a href="/" class="logo">HAEMUK</a>
     </div>
   </header>
 
-  <main class="container">
-    <div class="product-container">
-      <div class="product-image">
-        <img src="images/octopus_ragu.jpg" alt="Octopus Ragu">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2>요리의 처음과 끝</h2>
+          <p>해먹과 함께라면 누구나 쉽게 요리할 수 있습니다.</p>
+          <div class="app-download">
+            <a href="#" class="download-button">
+              <div class="store-button-content">
+                <img src="images/playstore_logo.png" alt="Play Store logo">
+                <span>Google Play</span>
+              </div>
+            </a>
+            <a href="#" class="download-button">
+              <div class="store-button-content">
+                <img src="images/apple_logo.png" alt="App Store logo">
+                <span>App Store</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="product-details">
-        <h2 class="product-title">Octopus Ragu Recipe</h2>
-        <div class="product-description">
-          <p>Experience the perfect fusion of Korean and Italian cuisine with our signature Octopus Ragu recipe. This unique dish combines tender Tongyeong octopus with a rich tomato sauce, enhanced by fresh celery and premium olive oil, all served over authentic Italian rigatoni pasta.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="/terms.html">서비스 이용약관</a>
+        <a href="/privacy.html">개인정보 처리방침</a>
+        <a href="/refund.html">교환/반품/환불 정책</a>
+      </div>
+
+      <div class="company-info">
+        <p>테이크유어타임 주식회사</p>
+        <p>대표: 임민섭 | 사업자등록번호: 361-87-03465</p>
+        <p class="address">경기도 화성시 메타폴리스로 42, 9층 902호 엔04</p>
+        <div class="contact">
+          <a href="mailto:contact@haemuk.com">이메일: contact@haemuk.com</a>
         </div>
-        <div class="ingredients-list">
-          <h3>Required Ingredients:</h3>
-          <ul>
-            <li>통영상 돌문어 (1kg) - ₩31,180</li>
-            <li>Hunts 토마토 페이스트 (340g) × 2개 - ₩10,160</li>
-            <li>샐러리 (1포기) - ₩3,980</li>
-            <li>델파파 유기농 엑스트라 버진 올리브오일 (250ml) - ₩13,300</li>
-          </ul>
-          <div class="ingredients-total">Total Ingredients Cost: ₩58,620</div>
-        </div>
-        <button class="btn btn-primary" onclick="addToCart('octopus-ragu')">
-          Add Ingredients to Cart
-        </button>
+        <p>호스팅 서비스 : 테이크유어타임 주식회사</p>
+        <p class="copyright">&copy; TakeYourTime Corp.</p>
       </div>
     </div>
-  </main>
+  </footer>
 
   <script src="script.js"></script>
 </body>

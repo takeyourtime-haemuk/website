@@ -35,11 +35,31 @@
             color: #666;
             margin: 5px 0;
         }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .status.success {
+            background: #e3f9e5;
+            color: #1c7c4e;
+        }
+        .status.error {
+            background: #fbe9e7;
+            color: #c62828;
+        }
     </style>
 </head>
 <body>
     <h1>해먹 딥링크 테스트</h1>
     
+    <div class="link-group">
+        <h2>설정 상태</h2>
+        <div class="description">Universal Links / App Links 설정 상태를 확인합니다.</div>
+        <div id="configStatus">확인 중...</div>
+    </div>
+
     <div class="link-group">
         <h2>상품 페이지</h2>
         <div class="description">상품 상세 페이지로 이동하는 링크입니다.</div>
@@ -55,17 +75,46 @@
     </div>
 
     <script>
+        // Check configuration files
+        async function checkConfig() {
+            const statusDiv = document.getElementById('configStatus');
+            const results = [];
+
+            try {
+                // Check Apple Universal Links
+                const appleResponse = await fetch('/.well-known/apple-app-site-association.json');
+                const appleContentType = appleResponse.headers.get('content-type');
+                if (appleResponse.ok && appleContentType.includes('application/json')) {
+                    results.push('<span class="status success">✓ Apple Universal Links</span>');
+                } else {
+                    results.push('<span class="status error">✗ Apple Universal Links</span>');
+                }
+
+                // Check Android App Links
+                const androidResponse = await fetch('/.well-known/assetlinks.json');
+                const androidContentType = androidResponse.headers.get('content-type');
+                if (androidResponse.ok && androidContentType.includes('application/json')) {
+                    results.push('<span class="status success">✓ Android App Links</span>');
+                } else {
+                    results.push('<span class="status error">✗ Android App Links</span>');
+                }
+            } catch (error) {
+                results.push('<span class="status error">✗ Configuration check failed</span>');
+            }
+
+            statusDiv.innerHTML = results.join('<br>');
+        }
+
+        // Check configuration on page load
+        checkConfig();
+
         // Add fallback for when app is not installed
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (e) => {
-                // Store the time when the link was clicked
                 const start = Date.now();
                 
-                // After a delay, check if we're still on the same page
                 setTimeout(() => {
-                    // If we're still here after 2 seconds, redirect to the app store
                     if (Date.now() - start < 2000) {
-                        // Check platform and redirect accordingly
                         if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
                             window.location = "https://apps.apple.com/app/your-app-id";
                         } else if (/Android/.test(navigator.userAgent)) {
