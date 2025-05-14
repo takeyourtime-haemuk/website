@@ -122,4 +122,69 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = '/cart.html';
     });
   }
+});
+
+// Tab functionality
+function openTab(tabName) {
+  // Hide all tab content
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabContents.forEach(content => {
+    content.classList.remove('active');
+  });
+
+  // Remove active class from all buttons
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => {
+    button.classList.remove('active');
+  });
+
+  // Show the selected tab content
+  document.getElementById(tabName).classList.add('active');
+  
+  // Add active class to the clicked button
+  document.querySelector(`button[onclick="openTab('${tabName}')"]`).classList.add('active');
+
+  // Update URL hash without scrolling
+  history.pushState(null, '', `#${tabName}`);
+}
+
+// Handle initial tab based on URL hash
+function handleInitialTab() {
+  const hash = window.location.hash.slice(1);
+  if (hash && document.getElementById(hash)) {
+    openTab(hash);
+  }
+}
+
+// Smooth scroll for anchor links
+document.addEventListener('DOMContentLoaded', () => {
+  // Handle initial tab
+  handleInitialTab();
+
+  // Add animation to features on scroll
+  const features = document.querySelectorAll('.feature-item');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  features.forEach(feature => {
+    feature.style.opacity = '0';
+    feature.style.transform = 'translateY(20px)';
+    feature.style.transition = 'all 0.6s ease-out';
+    observer.observe(feature);
+  });
+
+  // Handle back/forward browser navigation
+  window.addEventListener('popstate', handleInitialTab);
 }); 
