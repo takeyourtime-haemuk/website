@@ -477,7 +477,8 @@ footer {
 /* Common styles for terms, privacy, and refund pages */
 .terms-content,
 .privacy-content,
-.refund-content {
+.refund-content,
+.service-guide-content {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -485,83 +486,96 @@ footer {
 
 .terms-content h4,
 .privacy-content h4,
-.refund-content h4 {
+.refund-content h4,
+.service-guide-content h4 {
   font-size: 24px;
   font-weight: 700;
-  color: var(--primary-color);
   margin-bottom: 30px;
-  text-align: center;
+  color: var(--text-color);
 }
 
 .terms-content h5,
 .privacy-content h5,
-.refund-content h5 {
+.refund-content h5,
+.service-guide-content h5 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
+  margin: 30px 0 15px;
   color: var(--text-color);
-  margin: 25px 0 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--light-gray);
 }
 
 .terms-content p,
 .privacy-content p,
-.refund-content p {
+.refund-content p,
+.service-guide-content p {
   margin-bottom: 15px;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
-.terms-content ol,
 .terms-content ul,
 .privacy-content ul,
-.refund-content ul {
-  margin: 15px 0;
+.refund-content ul,
+.service-guide-content ul {
+  margin-bottom: 20px;
   padding-left: 20px;
 }
 
 .terms-content li,
 .privacy-content li,
-.refund-content li {
+.refund-content li,
+.service-guide-content li {
   margin-bottom: 10px;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .terms-date,
 .privacy-date,
-.refund-date {
+.refund-date,
+.service-guide-date {
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid var(--light-gray);
+  border-top: 1px solid #eee;
   color: var(--dark-gray);
   font-size: 14px;
-  text-align: right;
 }
 
-/* Remove any duplicate or inconsistent styles */
-.terms-content, .privacy-content, .refund-content {
-  font-size: 15px;
+/* Service Guide specific styles */
+.service-step {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+}
+
+.service-step h5 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.service-note {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #FFF5F5;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+}
+
+.service-note h5 {
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
-  .terms-content,
-  .privacy-content,
-  .refund-content {
+  .service-step,
+  .service-note {
     padding: 15px;
-    margin: 20px auto;
   }
-
-  .terms-content h4,
-  .privacy-content h4,
-  .refund-content h4 {
+  
+  .service-guide-content h4 {
     font-size: 20px;
-    margin-bottom: 20px;
   }
-
-  .terms-content h5,
-  .privacy-content h5,
-  .refund-content h5 {
+  
+  .service-guide-content h5 {
     font-size: 16px;
-    margin: 20px 0 10px;
   }
 }
 
