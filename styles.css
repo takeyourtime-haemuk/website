@@ -606,11 +606,24 @@ footer {
   margin-top: 1px;
 }
 
+.store-button-content i {
+  font-size: 24px;
+  color: var(--white);
+}
+
 .store-button-content span {
   color: var(--white);
   font-size: 18px;
   font-weight: 500;
   line-height: 1;
+}
+
+.apk-download {
+  background-color: var(--primary-color);
+}
+
+.apk-download:hover {
+  background-color: #ff5252;
 }
 
 /* Shipping Page Styles */
