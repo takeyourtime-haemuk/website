@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>계정 삭제 요청 - 해먹</title>
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <a href="/" class="logo haemuk-brand">Haemuk</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="delete-account-section">
+      <div class="container">
+        <div class="delete-account-content">
+          <h4>계정 삭제 요청</h4>
+          
+          <div class="warning-notice">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><strong>주의사항</strong></p>
+            <p>계정 삭제 시 모든 개인정보와 서비스 이용 기록이 영구적으로 삭제되며, 복구가 불가능합니다.</p>
+          </div>
+
+          <div class="delete-info">
+            <h5>계정 삭제 시 처리되는 정보</h5>
+            <ul>
+              <li>개인정보 (이메일, 닉네임, 프로필 등)</li>
+              <li>작성한 레시피 및 댓글</li>
+              <li>찜한 레시피 목록</li>
+              <li>주문 내역 (법정 보관기간 경과 후 삭제)</li>
+              <li>서비스 이용 기록</li>
+            </ul>
+          </div>
+
+          <form id="deleteAccountForm" class="delete-form">
+            <div class="form-group">
+              <label for="email">이메일 주소</label>
+              <input type="email" id="email" name="email" required 
+                     placeholder="계정에 등록된 이메일 주소를 입력해주세요">
+            </div>
+
+            <div class="form-group">
+              <label for="reason">삭제 사유 (선택사항)</label>
+              <select id="reason" name="reason">
+                <option value="">선택해주세요</option>
+                <option value="not_using">서비스를 사용하지 않음</option>
+                <option value="privacy_concern">개인정보 보호 우려</option>
+                <option value="found_alternative">다른 서비스 이용</option>
+                <option value="dissatisfied">서비스에 불만족</option>
+                <option value="other">기타</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="additional_comments">추가 의견 (선택사항)</label>
+              <textarea id="additional_comments" name="additional_comments" rows="4" 
+                        placeholder="계정 삭제와 관련하여 추가로 전달하고 싶은 의견이 있으시면 작성해주세요."></textarea>
+            </div>
+
+            <div class="consent-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="consent" name="consent" required>
+                <span class="checkmark"></span>
+                위 내용을 확인하였으며, 계정 삭제 시 모든 데이터가 영구적으로 삭제됨을 이해하고 동의합니다.
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="cancel-button" onclick="history.back()">취소</button>
+              <button type="submit" class="delete-button">계정 삭제 요청</button>
+            </div>
+          </form>
+
+          <div class="contact-info">
+            <h5>문의사항이 있으신가요?</h5>
+            <p>계정 삭제와 관련하여 궁금한 점이 있으시면 언제든지 연락해주세요.</p>
+            <p><strong>이메일:</strong> <a href="mailto:support@haemuk.com">support@haemuk.com</a></p>
+          </div>
+
+          <div id="successMessage" class="success-message" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <h5>계정 삭제 요청이 접수되었습니다</h5>
+            <p>입력하신 이메일 주소로 계정 삭제 처리 안내를 보내드렸습니다.</p>
+            <p>일반적으로 요청 후 3-5 영업일 내에 처리됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="./terms.html">서비스 이용약관</a>
+        <a href="./privacy.html">개인정보 처리방침</a>
+        <a href="./refund.html">교환/반품/환불 정책</a>
+        <a href="./shipping.html">배송 안내</a>
+        <a href="./service-guide.html">서비스 이용안내</a>
+        <a href="./delete-account.html">계정 삭제</a>
+      </div>
+
+      <div class="company-info">
+        <p>테이크유어타임 주식회사</p>
+        <p>대표: 임민섭 | 사업자등록번호: 361-87-03465</p>
+        <p class="address">경기도 화성시 메타폴리스로 42, 9층 902호 엔04</p>
+        <div class="contact">
+          <a href="mailto:contact@haemuk.com">이메일: contact@haemuk.com</a>
+        </div>
+        <p>호스팅 서비스 : 테이크유어타임 주식회사</p>
+        <p class="copyright">&copy; TakeYourTime Corp.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('deleteAccountForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const consent = document.getElementById('consent').checked;
+      
+      if (!email || !consent) {
+        alert('이메일 주소를 입력하고 동의사항을 확인해주세요.');
+        return;
+      }
+      
+      // Show loading state
+      const submitButton = document.querySelector('.delete-button');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = '처리 중...';
+      submitButton.disabled = true;
+      
+      // Simulate API call (replace with actual implementation)
+      setTimeout(() => {
+        // Hide form and show success message
+        document.querySelector('.delete-account-content').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Reset button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }, 2000);
+    });
+  </script>
+</body>
+</html> 
