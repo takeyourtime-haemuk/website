@@ -744,4 +744,311 @@ footer {
   font-family: 'Pacifico', cursive;
   font-size: 24px;
   color: #FF6B6B; /* This matches AppColors.primary - adjust if needed */
+}
+
+/* Delete Account Page Styles */
+.delete-account-section {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.delete-account-content {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.delete-account-content h4 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.delete-account-content h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.warning-notice {
+  background: #FFF3CD;
+  border: 1px solid #FFEAA7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.warning-notice i {
+  color: #F39C12;
+  font-size: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.warning-notice p {
+  margin: 0;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.warning-notice p:first-of-type {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.delete-info {
+  margin-bottom: 30px;
+}
+
+.delete-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.delete-info li {
+  padding: 8px 0;
+  border-bottom: 1px solid #F1F3F4;
+  position: relative;
+  padding-left: 20px;
+}
+
+.delete-info li:before {
+  content: '•';
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.delete-info li:last-child {
+  border-bottom: none;
+}
+
+.delete-form {
+  margin: 30px 0;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #E5E8EB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  background: var(--white);
+}
+
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.consent-group {
+  margin: 30px 0;
+  padding: 20px;
+  background: #F8F9FA;
+  border-radius: 8px;
+  border: 1px solid #E9ECEF;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cancel-button,
+.delete-button {
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.cancel-button {
+  background: #F8F9FA;
+  color: var(--dark-gray);
+  border: 2px solid #E9ECEF;
+}
+
+.cancel-button:hover {
+  background: #E9ECEF;
+  border-color: #DEE2E6;
+}
+
+.delete-button {
+  background: #DC3545;
+  color: var(--white);
+}
+
+.delete-button:hover {
+  background: #C82333;
+}
+
+.delete-button:disabled {
+  background: #6C757D;
+  cursor: not-allowed;
+}
+
+.contact-info {
+  margin-top: 40px;
+  padding: 25px;
+  background: #F8F9FA;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contact-info h5 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.contact-info p {
+  margin: 8px 0;
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.success-message {
+  text-align: center;
+  padding: 60px 40px;
+  background: #D4F6D4;
+  border: 1px solid #C3E6C3;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.success-message i {
+  font-size: 48px;
+  color: #28A745;
+  margin-bottom: 20px;
+}
+
+.success-message h5 {
+  font-size: 24px;
+  color: #155724;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.success-message p {
+  color: #155724;
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .delete-account-section {
+    padding: 40px 0;
+  }
+  
+  .delete-account-content {
+    margin: 0 20px;
+    padding: 30px 20px;
+  }
+  
+  .delete-account-content h4 {
+    font-size: 24px;
+  }
+  
+  .warning-notice {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .warning-notice i {
+    margin-top: 0;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .cancel-button,
+  .delete-button {
+    width: 100%;
+  }
+  
+  .success-message {
+    padding: 40px 20px;
+  }
+  
+  .success-message i {
+    font-size: 36px;
+  }
+  
+  .success-message h5 {
+    font-size: 20px;
+  }
 } 
