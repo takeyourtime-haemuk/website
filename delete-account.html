@@ -4,49 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>계정 삭제 요청 - 해먹</title>
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header class="main-header">
+<body class="modern-body">
+  <header class="modern-header">
     <div class="header-container">
       <a href="/" class="logo haemuk-brand">Haemuk</a>
     </div>
   </header>
 
-  <main>
-    <section class="delete-account-section">
-      <div class="container">
-        <div class="delete-account-content">
-          <h4>계정 삭제 요청</h4>
-          
-          <div class="warning-notice">
-            <i class="fas fa-exclamation-triangle"></i>
-            <p><strong>주의사항</strong></p>
-            <p>계정 삭제 시 모든 개인정보와 서비스 이용 기록이 영구적으로 삭제되며, 복구가 불가능합니다.</p>
+  <main class="modern-main">
+    <div class="modern-container">
+      <div class="delete-account-card">
+        <div class="card-header">
+          <div class="header-icon">
+            <i class="fas fa-user-slash"></i>
           </div>
+          <h1>계정 삭제 요청</h1>
+          <p class="header-subtitle">계정 삭제를 신중히 검토해 주세요</p>
+        </div>
 
-          <div class="delete-info">
-            <h5>계정 삭제 시 처리되는 정보</h5>
-            <ul>
-              <li>개인정보 (이메일, 닉네임, 프로필 등)</li>
-              <li>작성한 레시피 및 댓글</li>
-              <li>찜한 레시피 목록</li>
-              <li>주문 내역 (법정 보관기간 경과 후 삭제)</li>
-              <li>서비스 이용 기록</li>
-            </ul>
+        <div class="warning-section">
+          <div class="warning-card">
+            <div class="warning-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="warning-content">
+              <h3>중요한 안내사항</h3>
+              <p>계정 삭제 시 모든 개인정보와 서비스 이용 기록이 <strong>영구적으로 삭제</strong>되며, 복구가 불가능합니다.</p>
+            </div>
           </div>
+        </div>
 
-          <form id="deleteAccountForm" class="delete-form">
+        <div class="info-section">
+          <h3>삭제되는 정보</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <i class="fas fa-user"></i>
+              <span>개인정보 (이메일, 닉네임, 프로필)</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-utensils"></i>
+              <span>작성한 레시피 및 댓글</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-heart"></i>
+              <span>찜한 레시피 목록</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-shopping-cart"></i>
+              <span>주문 내역 (법정 보관기간 후)</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-chart-line"></i>
+              <span>서비스 이용 기록</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-database"></i>
+              <span>모든 활동 데이터</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="deleteAccountForm" class="modern-form">
+          <div class="form-section">
+            <h3>계정 정보</h3>
             <div class="form-group">
               <label for="email">이메일 주소</label>
               <input type="email" id="email" name="email" required 
                      placeholder="계정에 등록된 이메일 주소를 입력해주세요">
             </div>
+          </div>
 
+          <div class="form-section">
+            <h3>삭제 사유 (선택사항)</h3>
             <div class="form-group">
-              <label for="reason">삭제 사유 (선택사항)</label>
+              <label for="reason">사유 선택</label>
               <select id="reason" name="reason">
                 <option value="">선택해주세요</option>
                 <option value="not_using">서비스를 사용하지 않음</option>
@@ -58,40 +93,69 @@
             </div>
 
             <div class="form-group">
-              <label for="additional_comments">추가 의견 (선택사항)</label>
+              <label for="additional_comments">추가 의견</label>
               <textarea id="additional_comments" name="additional_comments" rows="4" 
                         placeholder="계정 삭제와 관련하여 추가로 전달하고 싶은 의견이 있으시면 작성해주세요."></textarea>
             </div>
-
-            <div class="consent-group">
-              <label class="checkbox-label">
-                <input type="checkbox" id="consent" name="consent" required>
-                <span class="checkmark"></span>
-                위 내용을 확인하였으며, 계정 삭제 시 모든 데이터가 영구적으로 삭제됨을 이해하고 동의합니다.
-              </label>
-            </div>
-
-            <div class="form-actions">
-              <button type="button" class="cancel-button" onclick="history.back()">취소</button>
-              <button type="submit" class="delete-button">계정 삭제 요청</button>
-            </div>
-          </form>
-
-          <div class="contact-info">
-            <h5>문의사항이 있으신가요?</h5>
-            <p>계정 삭제와 관련하여 궁금한 점이 있으시면 언제든지 연락해주세요.</p>
-            <p><strong>이메일:</strong> <a href="mailto:support@haemuk.com">support@haemuk.com</a></p>
           </div>
 
-          <div id="successMessage" class="success-message" style="display: none;">
-            <i class="fas fa-check-circle"></i>
-            <h5>계정 삭제 요청이 접수되었습니다</h5>
-            <p>입력하신 이메일 주소로 계정 삭제 처리 안내를 보내드렸습니다.</p>
-            <p>일반적으로 요청 후 3-5 영업일 내에 처리됩니다.</p>
+          <div class="consent-section">
+            <div class="consent-card">
+              <label class="modern-checkbox">
+                <input type="checkbox" id="consent" name="consent" required>
+                <span class="checkmark"></span>
+                <div class="consent-text">
+                  <strong>계정 삭제에 동의합니다</strong>
+                  <p>위 내용을 확인하였으며, 계정 삭제 시 모든 데이터가 영구적으로 삭제됨을 이해하고 동의합니다.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="history.back()">
+              <i class="fas fa-arrow-left"></i>
+              취소
+            </button>
+            <button type="submit" class="btn-danger">
+              <i class="fas fa-user-slash"></i>
+              계정 삭제 요청
+            </button>
+          </div>
+        </form>
+
+        <div class="contact-section">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="contact-content">
+              <h3>문의사항이 있으신가요?</h3>
+              <p>계정 삭제와 관련하여 궁금한 점이 있으시면 언제든지 연락해주세요.</p>
+              <a href="mailto:support@haemuk.com" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                support@haemuk.com
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <div id="successCard" class="success-card" style="display: none;">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>계정 삭제 요청이 접수되었습니다</h2>
+        <p>입력하신 이메일 주소로 계정 삭제 처리 안내를 보내드렸습니다.</p>
+        <p>일반적으로 요청 후 <strong>3-5 영업일</strong> 내에 처리됩니다.</p>
+        <div class="success-actions">
+          <a href="/" class="btn-primary">
+            <i class="fas fa-home"></i>
+            홈으로 돌아가기
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -132,19 +196,19 @@
       }
       
       // Show loading state
-      const submitButton = document.querySelector('.delete-button');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = '처리 중...';
+      const submitButton = document.querySelector('.btn-danger');
+      const originalHTML = submitButton.innerHTML;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 처리 중...';
       submitButton.disabled = true;
       
-      // Simulate API call (replace with actual implementation)
+      // Simulate API call
       setTimeout(() => {
         // Hide form and show success message
-        document.querySelector('.delete-account-content').style.display = 'none';
-        document.getElementById('successMessage').style.display = 'block';
+        document.querySelector('.delete-account-card').style.display = 'none';
+        document.getElementById('successCard').style.display = 'block';
         
         // Reset button state
-        submitButton.textContent = originalText;
+        submitButton.innerHTML = originalHTML;
         submitButton.disabled = false;
       }, 2000);
     });
