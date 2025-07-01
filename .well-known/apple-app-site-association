@@ -3,8 +3,8 @@
         "apps": [],
         "details": [
             {
-                "appID": "TEAM_ID.com.haemuk.app",
-                "paths": ["*"]
+                "appID": "MG2R842KJ6.com.haemuk.app",
+                "paths": ["/post/*"]
             }
         ]
     }
