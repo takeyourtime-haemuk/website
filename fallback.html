@@ -1,55 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Open in App</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function () {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      let redirectUrl = "";
+
+      if (/android/i.test(userAgent)) {
+        redirectUrl = "https://play.google.com/store/apps/details?id=com.haemuk";
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        redirectUrl = "https://apps.apple.com/app/id6747734534";
+      }
+
+      // Optional: brief delay before redirect
+      setTimeout(() => {
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        }
+      }, 1500);
+    };
+  </script>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding: 2rem;
     }
-    .button {
-      display: inline-block;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      font-size: 18px;
-      background-color: #f05050;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
   </style>
 </head>
 <body>
-  <h2>This content is only available in the Haemuk app.</h2>
-  <p>We couldn't open the post directly. Please open the app or download it below:</p>
-
-  <div id="app-links">
-    <!-- Default links (in case JS fails) -->
-    <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
-    <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a>
-  </div>
+  <h2>"해먹" 앱으로 이동합니다</h2>
+  <p>자동으로 이동하지 않으면 <a id="fallback-link" href="#">여기를 클릭</a>하세요.</p>
 
   <script>
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const linksDiv = document.getElementById('app-links');
-
-    let html = '';
-
-    if (/android/i.test(userAgent)) {
-      html = `<a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk.app">Open in Google Play</a>`;
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      html = `<a class="button" href="https://apps.apple.com/app/id6747734534">Open in App Store</a>`;
+    const fallbackLink = document.getElementById("fallback-link");
+    if (/android/i.test(navigator.userAgent)) {
+      fallbackLink.href = "https://play.google.com/store/apps/details?id=com.haemuk";
     } else {
-      html = `
-        <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
-        <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a>
-      `;
+      fallbackLink.href = "https://apps.apple.com/app/id6747734534";
     }
-
-    linksDiv.innerHTML = html;
   </script>
 </body>
 </html>
