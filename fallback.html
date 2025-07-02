@@ -10,15 +10,54 @@
       text-align: center;
       padding: 2rem;
     }
-    .button {
-      display: inline-block;
+    .prettified-store-btn {
+      background: #181818;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+      padding: 0;
+      min-width: 180px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.12s, box-shadow 0.12s;
+      border: none;
       margin: 1rem;
-      padding: 1rem 2rem;
-      font-size: 18px;
-      background-color: #f05050;
-      color: white;
       text-decoration: none;
-      border-radius: 8px;
+    }
+    .prettified-store-btn:hover, .prettified-store-btn:focus {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 20px 0 rgba(0,0,0,0.13);
+      background: #232323;
+    }
+    .prettified-store-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 22px 10px 16px;
+    }
+    .store-logo {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
+    .store-texts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
+    }
+    .store-caption {
+      font-size: 12px;
+      color: #e0e0e0;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+    }
+    .store-title {
+      font-size: 19px;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 1px;
+      letter-spacing: 0.2px;
     }
   </style>
 </head>
@@ -28,8 +67,24 @@
 
   <div id="app-links">
     <!-- Default links (in case JS fails) -->
-    <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
-    <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a요
+    <a class="prettified-store-btn" href="https://apps.apple.com/app/id6747734534" aria-label="App Store에서 다운로드">
+      <div class="prettified-store-content">
+        <img src="/images/apple_logo.png" alt="App Store logo" class="store-logo">
+        <div class="store-texts">
+          <span class="store-caption">Download on the</span>
+          <span class="store-title">App Store</span>
+        </div>
+      </div>
+    </a>
+    <a class="prettified-store-btn" href="https://play.google.com/store/apps/details?id=com.haemuk" aria-label="Google Play에서 다운로드">
+      <div class="prettified-store-content">
+        <img src="/images/playstore_logo.png" alt="Play Store logo" class="store-logo">
+        <div class="store-texts">
+          <span class="store-caption">GET IT ON</span>
+          <span class="store-title">Google Play</span>
+        </div>
+      </div>
+    </a>
   </div>
 
   <script>
@@ -39,13 +94,45 @@
     let html = '';
 
     if (/android/i.test(userAgent)) {
-      html = `<a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk.app">Open in Google Play</a>`;
+      html = `<a class=\"prettified-store-btn\" href=\"https://play.google.com/store/apps/details?id=com.haemuk\" aria-label=\"Google Play에서 다운로드\">
+        <div class=\"prettified-store-content\">
+          <img src=\"/images/playstore_logo.png\" alt=\"Play Store logo\" class=\"store-logo\">
+          <div class=\"store-texts\">
+            <span class=\"store-caption\">GET IT ON</span>
+            <span class=\"store-title\">Google Play</span>
+          </div>
+        </div>
+      </a>`;
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      html = `<a class="button" href="https://apps.apple.com/app/id6747734534">Open in App Store</a>`;
+      html = `<a class=\"prettified-store-btn\" href=\"https://apps.apple.com/app/id6747734534\" aria-label=\"App Store에서 다운로드\">
+        <div class=\"prettified-store-content\">
+          <img src=\"/images/apple_logo.png\" alt=\"App Store logo\" class=\"store-logo\">
+          <div class=\"store-texts\">
+            <span class=\"store-caption\">Download on the</span>
+            <span class=\"store-title\">App Store</span>
+          </div>
+        </div>
+      </a>`;
     } else {
       html = `
-        <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
-        <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a>
+        <a class=\"prettified-store-btn\" href=\"https://apps.apple.com/app/id6747734534\" aria-label=\"App Store에서 다운로드\">
+          <div class=\"prettified-store-content\">
+            <img src=\"/images/apple_logo.png\" alt=\"App Store logo\" class=\"store-logo\">
+            <div class=\"store-texts\">
+              <span class=\"store-caption\">Download on the</span>
+              <span class=\"store-title\">App Store</span>
+            </div>
+          </div>
+        </a>
+        <a class=\"prettified-store-btn\" href=\"https://play.google.com/store/apps/details?id=com.haemuk\" aria-label=\"Google Play에서 다운로드\">
+          <div class=\"prettified-store-content\">
+            <img src=\"/images/playstore_logo.png\" alt=\"Play Store logo\" class=\"store-logo\">
+            <div class=\"store-texts\">
+              <span class=\"store-caption\">GET IT ON</span>
+              <span class=\"store-title\">Google Play</span>
+            </div>
+          </div>
+        </a>
       `;
     }
 
