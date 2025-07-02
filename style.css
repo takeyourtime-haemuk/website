@@ -1,0 +1,47 @@
+.prettified-store-btn {
+  background: #181818;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+  padding: 0;
+  min-width: 180px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.12s, box-shadow 0.12s;
+  border: none;
+}
+.prettified-store-btn:hover, .prettified-store-btn:focus {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.13);
+  background: #232323;
+}
+.prettified-store-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px 10px 16px;
+}
+.store-logo {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+.store-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+.store-caption {
+  font-size: 12px;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+.store-title {
+  font-size: 19px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 1px;
+  letter-spacing: 0.2px;
+} 
