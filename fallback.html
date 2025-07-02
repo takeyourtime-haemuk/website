@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open in App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .button {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      font-size: 18px;
+      background-color: #f05050;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>This content is only available in the Haemuk app.</h2>
+  <p>We couldn't open the post directly. Please open the app or download it below:</p>
+
+  <div id="app-links">
+    <!-- Default links (in case JS fails) -->
+    <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
+    <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a>
+  </div>
+
+  <script>
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const linksDiv = document.getElementById('app-links');
+
+    let html = '';
+
+    if (/android/i.test(userAgent)) {
+      html = `<a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk.app">Open in Google Play</a>`;
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      html = `<a class="button" href="https://apps.apple.com/app/id6747734534">Open in App Store</a>`;
+    } else {
+      html = `
+        <a class="button" href="https://apps.apple.com/app/id6747734534">App Store</a>
+        <a class="button" href="https://play.google.com/store/apps/details?id=com.haemuk">Google Play</a>
+      `;
+    }
+
+    linksDiv.innerHTML = html;
+  </script>
+</body>
+</html>

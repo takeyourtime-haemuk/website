@@ -2,7 +2,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
         "namespace": "android_app",
-        "package_name": "com.haemuk.app",
+        "package_name": "com.haemuk",
         "sha256_cert_fingerprints": [
             "D3:1E:C5:13:36:B2:64:F7:E4:BE:D8:81:50:AA:26:62:15:15:28:56:7D:2A:A1:23:97:DE:F6:EA:48:F5:AB:EA"
         ]
