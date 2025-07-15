@@ -1,10 +1,15 @@
-[{
-    "relation": ["delegate_permission/common.handle_all_urls"],
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
-        "namespace": "android_app",
-        "package_name": "com.haemuk",
-        "sha256_cert_fingerprints": [
-            "D3:1E:C5:13:36:B2:64:F7:E4:BE:D8:81:50:AA:26:62:15:15:28:56:7D:2A:A1:23:97:DE:F6:EA:48:F5:AB:EA"
-        ]
+      "namespace": "android_app",
+      "package_name": "com.haemuk",
+      "sha256_cert_fingerprints": [
+        "D3:1E:C5:13:36:B2:64:F7:E4:BE:D8:81:50:AA:26:62:15:15:28:56:7D:2A:A1:23:97:DE:F6:EA:48:F5:AB:EA",
+        "12:73:F0:12:30:76:36:8A:7B:5C:0C:01:CA:14:5B:72:9A:34:CD:EF:52:68:70:31:06:EC:BB:E8:50:7F:BE:D9"
+      ]
     }
-}]
+  }
+]
