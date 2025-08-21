@@ -1,1 +1,8 @@
-/post/*    /fallback.html    200
+# Redirect www to root domain
+https://www.haemuk.com/*   https://haemuk.com/:splat   301!
+
+# Serve .well-known files correctly
+/.well-known/*   /.well-known/:splat   200
+
+# Existing fallback for /post/*
+/post/*   /fallback.html   200
