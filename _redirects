@@ -4,5 +4,6 @@
 # Redirect www to root domain
 https://www.haemuk.com/*   https://haemuk.com/:splat   301!
 
-# Existing fallback for /post/*
-/post/*   /deeplink.html   200
+# Fallback for all other unknown routes (including /post/*)
+# This ensures Netlify serves index.html for SPA routing
+/*   /index.html   200
