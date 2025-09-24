@@ -5,4 +5,4 @@
 https://www.haemuk.com/*   https://haemuk.com/:splat   301!
 
 # Existing fallback for /post/*
-/post/*   /fallback.html   200
+# /post/*   /fallback.html   200
