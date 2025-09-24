@@ -30,10 +30,10 @@
 
     // If the app didn’t open in ~1.5s, redirect to store
     setTimeout(() => {
-      if (Date.now() - now < 10000) {
+      if (Date.now() - now < 2000) {
         window.location = fallback;
       }
-    }, 1500);
+    }, 10000);
   </script>
 </body>
 </html>
