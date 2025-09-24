@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opening Haemuk...</title>
+  <script>
+    const path = window.location.pathname; // e.g., /post/22
+    const postId = path.split('/').pop();
+
+    const appLink = `haemuk://post/${postId}`;
+    const iosAppStore = 'https://apps.apple.com/app/id6747734534';
+    const androidPlayStore = 'https://play.google.com/store/apps/details?id=com.haemuk';
+
+    function getMobileOS() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(ua)) return 'Android';
+      if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'iOS';
+      return 'other';
+    }
+
+    const os = getMobileOS();
+
+    // Try opening the app
+    window.location = appLink;
+
+    // Fallback to store after 1s
+    setTimeout(() => {
+      if (os === 'iOS') {
+        window.location = iosAppStore;
+      } else if (os === 'Android') {
+        window.location = androidPlayStore;
+      } else {
+        // For desktop or unknown, optionally show a web page
+        document.body.innerHTML = `
+          <p>Haemuk app link:</p>
+          <a href="${appLink}">Open app</a>
+        `;
+      }
+    }, 1000);
+  </script>
+</head>
+<body>
+  <p>Opening Haemuk app...</p>
+</body>
+</html>
