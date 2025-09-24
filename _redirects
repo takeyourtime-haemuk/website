@@ -5,4 +5,4 @@
 https://www.haemuk.com/*   https://haemuk.com/:splat   301!
 
 # Fallback for all other unknown routes (including /post/*)
-/post/*  /deeplink.html  200
+/post/*  /.netlify/functions/post  200
