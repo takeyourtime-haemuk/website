@@ -1,0 +1,6 @@
+[build]
+  # Folder containing your site files (index.html, JS, _redirects)
+  publish = "."
+  
+  # Folder containing your serverless functions
+  functions = "functions"
