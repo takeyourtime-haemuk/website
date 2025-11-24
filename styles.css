@@ -741,8 +741,6 @@ footer {
 }
 
 .haemuk-brand {
-  font-family: 'Pacifico', cursive;
-  font-size: 24px;
   color: #FF6B6B; /* This matches AppColors.primary - adjust if needed */
 }
 
